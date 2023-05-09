@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meu-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: meu-app
+  template:
+    metadata:
+      labels:
+        app: meu-app
+    spec:
+      containers:
+      - name: meu-container
+        image: guilherme/meuapp:1.0.0
+        ports:
+        - containerPort: 8080
+
